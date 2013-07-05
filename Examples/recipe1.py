@@ -1,6 +1,6 @@
 #-------------------------------------------------------------------------------
 # Name:        PyEnsemble Cookbook, Dataset #1
-# Purpose:     Test out hte PyEnsemble Pcakage
+# Purpose:     Test out the PyEnsemble Pcakage
 #
 # Author:      amcelhinney
 #
@@ -29,6 +29,7 @@ if __name__ == '__main__':
     data = path + 'Cookbook/heart'
     db = path + 'test.db'
     args = ['python ',prog, '-D', db, '-d',data]
+    # Send the standard output as strings
     e = subprocess.check_output(args
     , stderr = subprocess.STDOUT)
     print e
