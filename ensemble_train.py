@@ -31,10 +31,14 @@ usage: ensemble_train.py [-h] -D DB_FILE -d DATA_FILE
 
 EnsembleSelectionClassifier training harness
 
-optional arguments:
+Required arguments:
+
+  -D DB_FILE            specify a name for the sqlite db file for used to store
+                        the models
+  -d DATA_FILE          data set you wish to use to train the model
+
+Optional arguments:
   -h, --help            show this help message and exit
-  -D DB_FILE            sqlite db file for backing store
-  -d DATA_FILE          training data in svm format
   -M {svc,sgd,gbc,dtree,forest,extra,kmp,kernp}
                [{svc,sgd,gbc,dtree,forest,extra,kmp,kernp} ...]
                         model types to include as ensemble candidates
@@ -79,10 +83,11 @@ def parse_args():
     dflt_fmt = '(default: %(default)s)'
 
     parser.add_argument('-D', dest='db_file', required=True,
-                        help='sqlite db file for backing store')
+                        help='specify a name for the sqlite db file for used to store\
+                        the models')
 
     parser.add_argument('-d', dest='data_file', required=True,
-                        help='training data in svm format')
+                        help='data set you wish to use to train the model')
 
     model_choices = ['svc', 'sgd', 'gbc', 'dtree',
                      'forest', 'extra', 'kmp', 'kernp']
