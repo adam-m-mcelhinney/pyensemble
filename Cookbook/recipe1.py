@@ -31,28 +31,12 @@ if __name__ == '__main__':
     , stderr = subprocess.STDOUT)
     print e
 
+    # Test the change to make the -D optional
+    args = ['python ',prog, '-d',data]
+    e = subprocess.check_output(args
+    , stderr = subprocess.STDOUT)
+    print(e)
 
 
-    """
-    # OLD CRAP
-    #sys.argv = [ '-D ' + db, ' -d ' + data]
-    sys.argv = [db, data]
-    args = {'-D':db, '-d':data}
-    #execfile(prog, {'-D ' + db, ' -d ' + data})
-    execfile(prog, args)
-
-    subprocess.call([prog, '-D ' + db, ' -d ' + data])
-
-    subprocess.call(prog)
-    #subprocess.Popen([prog, '-D ' + db, ' -d ' + data])
-    e = subprocess.Popen(prog, shell = True)
-    e = subprocess.Popen(['python ',prog, '-D ' + db, ' -d ' + data], shell = True)
-    e = subprocess.Popen(['python ',prog, '-D ' + db, ' -d ' + data], std)
-    e = subprocess.call(['python ',prog, '-D ' + db, ' -d ' + data], stdout= PIPE)
-    e = subprocess.Popen(['python ',prog, '-D ' + db, ' -d ' + data], stdout = subprocess.PIPE)
-    e = subprocess.Popen(['python ',prog, '-D ' + db, ' -d ' + data])
-    result = e.communicate()
-    subprocess.check_output(['python ',prog, '-D ' + db, ' -d ' + data])
-    """
 
 
