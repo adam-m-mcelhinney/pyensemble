@@ -23,6 +23,8 @@ import subprocess
 
 if __name__ == '__main__':
 
+    # Train the data
+
     prog = path + 'ensemble_train.py'
     data = path + 'Cookbook/heart'
     db = path + 'test.db'
@@ -31,11 +33,16 @@ if __name__ == '__main__':
     , stderr = subprocess.STDOUT)
     print e
 
-    # Test the change to make the -D optional
-    args = ['python ',prog, '-d',data]
+    # Predict
+    prog = path + 'ensemble_predict.py'
+    data = path + 'Cookbook/heart'
+    db = path + 'test.db'
+    args = ['python ',prog, '-D', db, '-d',data]
     e = subprocess.check_output(args
     , stderr = subprocess.STDOUT)
-    print(e)
+    print e
+
+
 
 
 
